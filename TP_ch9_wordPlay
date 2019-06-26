@@ -88,7 +88,9 @@
    "metadata": {},
    "outputs": [],
    "source": [
+    "# Exercise 9.1\n",
     "def has_no_e(word):\n",
+    "    \"\"\"\"Function to determine if a word has no 'e'.\"\"\"\n",
     "    for letter in word:\n",
     "        if letter == 'e':\n",
     "            return False\n",
@@ -194,7 +196,10 @@
    "metadata": {},
    "outputs": [],
    "source": [
+    "# Exercise 9.3\n",
     "def avoid(word, string):\n",
+    "    \"\"\"Function for inputting a word and a string and determining \n",
+    "    if any of the characters in the string appear in the word.\"\"\"\n",
     "    for x in string:\n",
     "        if x in word:\n",
     "            return False\n",
@@ -243,29 +248,30 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 79,
+   "execution_count": 88,
    "metadata": {},
    "outputs": [],
    "source": [
+    "# Exercise 9.3   \n",
     "def corpus_avoid():\n",
     "    \"\"\"Function to search the wordlist for the count of \n",
     "    words that don't contain a desired string\"\"\"\n",
-    "    string = input(\"What letters are you avoiding?\")\n",
-    "    counter, wordcount = 0, 0\n",
+    "    wordcount, wordlist, string = 0, [], input(\"What letters are you avoiding?\")\n",
     "    with open(\"words.txt\") as fname:\n",
     "        for word in fname:\n",
     "            wordcount += 1\n",
     "            for x in string:\n",
     "                if word.__contains__(x):\n",
-    "                    continue\n",
-    "            continue\n",
-    "    return wordcount-counter"
+    "                    wordlist.append(word)\n",
+    "    print(\"\\nThere are \" +str(wordcount-(len(set(wordlist)))) + \" words which do not \\ncontain any of the letters in your \\nchosen string: \" + str(string))"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 77,
-   "metadata": {},
+   "metadata": {
+    "collapsed": true
+   },
    "outputs": [
     {
      "ename": "StdinNotImplementedError",
@@ -293,6 +299,7 @@
    "source": [
     "# Exercise 9.6\n",
     "def is_abecedarian(word):\n",
+    "    \"\"\"Function to determine if a word is abecedarian.\"\"\"\n",
     "    for x in range(len(word)-1):\n",
     "        if word.lower()[x] > word.lower()[x+1]:\n",
     "            return False\n",
@@ -318,12 +325,12 @@
     }
    ],
    "source": [
-    "is_abecedarian(\"acb\")"
+    "is_abecedarian(\"acb\")f"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 57,
+   "execution_count": 80,
    "metadata": {
     "collapsed": true
    },
@@ -344,11 +351,30 @@
     "            if word[x] == word[x+1] and word[x+2] == word[x+3] and word[x+4] == word[x+5]:\n",
     "                print(word)\n",
     "            else:\n",
-    "                continue\n",
-    "\n",
-    "        \n",
-    "            \n",
-    "            "
+    "                continue"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 82,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "198888\n199999\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Exercise 9.8\n",
+    "for x in range(100000,1000000):\n",
+    "    if str(x)[5] == str(x)[2] and str(x)[4] == str(x)[3]:\n",
+    "        if str(x+1)[5] == str(x+1)[1] and str(x+1)[4] == str(x+1)[2]:\n",
+    "            if str(x+2)[1] == str(x+2)[4] and str(x+2)[3] == str(x+2)[2]:\n",
+    "                if str(x+3)[0] == str(x+3)[5] and str(x+3)[1] == str(x+3)[4]and str(x+3)[2] == str(x+3)[3]:\n",
+    "                    print(str(x))\n"
    ]
   },
   {
@@ -357,9 +383,7 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "for x in range(100000,1000000):\n",
-    "    if str(x)[5] == str(x)[2] and str(x)[4] == str(x)[3]:\n",
-    "        if str(x+1)[5] == str(x+1)[1] and str(x+1)[4] == str(x+1)[2]:"
+    ""
    ]
   }
  ],
