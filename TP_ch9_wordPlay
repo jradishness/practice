@@ -1,0 +1,369 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "fin = open(\"words.txt\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'aa'"
+      ]
+     },
+     "execution_count": 20,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "fin.readline().strip()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "fin.close()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "aa\n"
+     ]
+    }
+   ],
+   "source": [
+    "for line in fin:\n",
+    "    print(line.strip())\n",
+    "    break"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 64,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "counterdemonstration\n\ncounterdemonstrations\n\ncounterdemonstrators\n\nhyperaggressivenesses\n\nhypersensitivenesses\n\nmicrominiaturization\n\nmicrominiaturizations\n\nrepresentativenesses\n\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Exercise 9.1\n",
+    "with open(\"words.txt\") as fin:\n",
+    "    for word in fin:\n",
+    "        if len(word) > 20:\n",
+    "            print(word)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def has_no_e(word):\n",
+    "    for letter in word:\n",
+    "        if letter == 'e':\n",
+    "            return False\n",
+    "    return True"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 66,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 66,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "has_no_e(\"happy\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 70,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "False"
+      ]
+     },
+     "execution_count": 70,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "has_no_e(\"plumber\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "microminiaturization\n\nmicrominiaturizations\n\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Exercise 9.2\n",
+    "with open(\"words.txt\") as fin:\n",
+    "    for word in fin:\n",
+    "        if len(word) > 20:\n",
+    "            if not word.__contains__(\"e\"):\n",
+    "                print(word)\n",
+    "                   "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Word's with E: 76168\nWord's without E: 37641\nTotal: 113809\nPercentage: 66.93%\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Exercise 9.2\n",
+    "e_counter = 0\n",
+    "non_counter = 0\n",
+    "with open(\"words.txt\") as wordlist:\n",
+    "    for word in wordlist:\n",
+    "        if word.__contains__(\"e\"):\n",
+    "            e_counter += 1\n",
+    "        else:\n",
+    "            non_counter += 1\n",
+    "total_words = e_counter+non_counter\n",
+    "print(\"Word's with E: \" + str(e_counter))\n",
+    "print(\"Word's without E: \" + str(non_counter))\n",
+    "print(\"Total: \" + str(total_words))\n",
+    "print(\"Percentage: {:.2%}\".format(e_counter/total_words))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 71,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def avoid(word, string):\n",
+    "    for x in string:\n",
+    "        if x in word:\n",
+    "            return False\n",
+    "    return True"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 72,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 72,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "avoid(\"apple\", \"qwrtyuio\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 73,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "False"
+      ]
+     },
+     "execution_count": 73,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "avoid(\"apple\", \"apple\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 79,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def corpus_avoid():\n",
+    "    \"\"\"Function to search the wordlist for the count of \n",
+    "    words that don't contain a desired string\"\"\"\n",
+    "    string = input(\"What letters are you avoiding?\")\n",
+    "    counter, wordcount = 0, 0\n",
+    "    with open(\"words.txt\") as fname:\n",
+    "        for word in fname:\n",
+    "            wordcount += 1\n",
+    "            for x in string:\n",
+    "                if word.__contains__(x):\n",
+    "                    continue\n",
+    "            continue\n",
+    "    return wordcount-counter"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 77,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "StdinNotImplementedError",
+     "evalue": "raw_input was called, but this frontend does not support input requests.",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mStdinNotImplementedError\u001b[0m                  Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-77-dc068baced1e>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mcorpus_avoid\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;32m<ipython-input-76-457c53523d94>\u001b[0m in \u001b[0;36mcorpus_avoid\u001b[0;34m()\u001b[0m\n\u001b[1;32m      2\u001b[0m     \"\"\"Function to search the wordlist for the count of \n\u001b[1;32m      3\u001b[0m     words that don't contain a desired string\"\"\"\n\u001b[0;32m----> 4\u001b[0;31m     \u001b[0mstring\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0minput\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"What letters are you avoiding?\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      5\u001b[0m     \u001b[0mcounter\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mwordcount\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;36m0\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m0\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      6\u001b[0m     \u001b[0;32mwith\u001b[0m \u001b[0mopen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"word.txt\"\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mfname\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m/anaconda3/lib/python3.7/site-packages/ipykernel/kernelbase.py\u001b[0m in \u001b[0;36mraw_input\u001b[0;34m(self, prompt)\u001b[0m\n\u001b[1;32m    846\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0;32mnot\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_allow_stdin\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    847\u001b[0m             raise StdinNotImplementedError(\n\u001b[0;32m--> 848\u001b[0;31m                 \u001b[0;34m\"raw_input was called, but this frontend does not support input requests.\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    849\u001b[0m             )\n\u001b[1;32m    850\u001b[0m         return self._input_request(str(prompt),\n",
+      "\u001b[0;31mStdinNotImplementedError\u001b[0m: raw_input was called, but this frontend does not support input requests."
+     ],
+     "output_type": "error"
+    }
+   ],
+   "source": [
+    "corpus_avoid()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 60,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Exercise 9.6\n",
+    "def is_abecedarian(word):\n",
+    "    for x in range(len(word)-1):\n",
+    "        if word.lower()[x] > word.lower()[x+1]:\n",
+    "            return False\n",
+    "        else:\n",
+    "            continue\n",
+    "    return True"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 63,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "False"
+      ]
+     },
+     "execution_count": 63,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "is_abecedarian(\"acb\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 57,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "bookkeeper\n\nbookkeepers\n\nbookkeeping\n\nbookkeepings\n\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Exercise 9.7\n",
+    "with open(\"words.txt\") as wordlist:\n",
+    "    for word in wordlist:\n",
+    "        for x in range(len(word)-5):\n",
+    "            if word[x] == word[x+1] and word[x+2] == word[x+3] and word[x+4] == word[x+5]:\n",
+    "                print(word)\n",
+    "            else:\n",
+    "                continue\n",
+    "\n",
+    "        \n",
+    "            \n",
+    "            "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "for x in range(100000,1000000):\n",
+    "    if str(x)[5] == str(x)[2] and str(x)[4] == str(x)[3]:\n",
+    "        if str(x+1)[5] == str(x+1)[1] and str(x+1)[4] == str(x+1)[2]:"
+   ]
+  }
+ ],
+ "metadata": {},
+ "nbformat": 4,
+ "nbformat_minor": 0
+}

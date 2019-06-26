@@ -1,0 +1,595 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class Dog():\n",
+    "    \"\"\"A simple attempt to model a dog.\"\"\"\n",
+    "    \n",
+    "    def __init__(self, name, age):\n",
+    "        \"\"\"Initialize name and age attributes.\"\"\"\n",
+    "        self.name = name\n",
+    "        self.age = age\n",
+    "        \n",
+    "    def sit(self):\n",
+    "        \"\"\"Simulate a dog sitting\"\"\"\n",
+    "        print(self.name.title() + \" is now sitting.\")\n",
+    "    \n",
+    "    def roll_over(self):\n",
+    "        \"\"\"Simulate a dog rolling over\"\"\"\n",
+    "        print(self.name.title() + \" rolled over!\")\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "mydog = Dog('Ghost', 4)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Ghost is now sitting.\n"
+     ]
+    }
+   ],
+   "source": [
+    "mydog.sit()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Ghost rolled over!\n"
+     ]
+    }
+   ],
+   "source": [
+    "mydog.roll_over()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "4"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "mydog.age"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 117,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Exercise 9-1\n",
+    "class Restaurant():\n",
+    "    \"\"\"A class for restaurant data\"\"\"\n",
+    "    \n",
+    "    def __init__(self, name, type):\n",
+    "        \"\"\"Initialization of the instance\"\"\"\n",
+    "        self.type = type\n",
+    "        self.name = name\n",
+    "        self.num_served = 0\n",
+    "        \n",
+    "    def open(self):\n",
+    "        \"\"\"Function to open restaurant\"\"\"\n",
+    "        print(self.name + \" is now open. Welcome!\")\n",
+    "        \n",
+    "    def describe(self):\n",
+    "        \"\"\"Function to describe restaurant\"\"\"\n",
+    "        print(self.name + \" is a wonderful restaurant that serves mainly \" + \n",
+    "              self.type.lower() + \" cuisine at a great value with a friendly environment.\")\n",
+    "        \n",
+    "    def set_num_served(self, served=0):\n",
+    "        \"\"\"A method for setting the number of guests served\"\"\"\n",
+    "        self.num_served = served\n",
+    "        \n",
+    "    def increment_num_served(self, increment=1):\n",
+    "        \"\"\"A method for incrementing the number of guests served\"\"\"\n",
+    "        self.num_served += increment\n",
+    "        "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Name: Tierneys\nCuisine: Brunch\nTierneys is now open. Welcome!\nTierneys is a wonderful restaurant that serves mainly brunch cuisine at a great value with a friendly environment.\n"
+     ]
+    }
+   ],
+   "source": [
+    "restaurant=Restaurant(\"Tierneys\", \"Brunch\")\n",
+    "print(\"Name: \" + restaurant.name.title())\n",
+    "print(\"Cuisine: \" + restaurant.type.title())\n",
+    "restaurant.open()\n",
+    "restaurant.describe()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "McDonald's is a wonderful restaurant that serves mainly fast food cuisine at a great value with a friendly environment.\nDel Frisco's is a wonderful restaurant that serves mainly steak cuisine at a great value with a friendly environment.\nTaco Bueno is a wonderful restaurant that serves mainly tex-mex cuisine at a great value with a friendly environment.\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Exercise 9-2\n",
+    "restaurant1=Restaurant(\"McDonald's\",\"Fast Food\")\n",
+    "restaurant2=Restaurant(\"Del Frisco's\", \"Steak\")\n",
+    "restaurant3=Restaurant(\"Taco Bueno\", \"Tex-Mex\")\n",
+    "restaurant1.describe()\n",
+    "restaurant2.describe()\n",
+    "restaurant3.describe()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 126,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Exercise 9-3\n",
+    "class User():\n",
+    "    \"\"\"Class for imitating users for a service\"\"\"\n",
+    "    \n",
+    "    def __init__(self, first, last):\n",
+    "        \"\"\"Initialize an instance of a user\"\"\"\n",
+    "        self.first = first.title()\n",
+    "        self.last = last.title()\n",
+    "        self.whole = self.first + \" \" + self.last \n",
+    "        self.email = first.lower() + \".\" + last.lower() + \"@unt.edu\"\n",
+    "        self.initials = first.upper()[0] + last.upper()[0]\n",
+    "        self.login_attempts = 0\n",
+    "    \n",
+    "    def greet(self):\n",
+    "        \"\"\"A function for greeting a user.\"\"\"\n",
+    "        print(\"Welcome, \" + self.first + \". Have a great time!\")\n",
+    "    \n",
+    "    def describe(self):\n",
+    "        \"\"\"A function for describing a user.\"\"\"\n",
+    "        print(\"Username: \" + self.whole)\n",
+    "        print(\"Initials: \" + self.initials)\n",
+    "        print(\"Email: \" + self.email + \"\\n\")\n",
+    "    \n",
+    "    def increment_login_attempts(self, increment=1):\n",
+    "        \"\"\"Method for incrementing number of login attempts\"\"\"\n",
+    "        self.login_attempts += increment\n",
+    "        \n",
+    "    def reset_login_attempts(self):\n",
+    "        \"\"\"Method for resetting number of login attempts\"\"\"\n",
+    "        self.login_attempts = 0\n",
+    "\n",
+    "        "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Welcome, Neil. Have a great time!\nUsername: Neil Smatresk\nInitials: NS\nEmail: neil.smatresk@unt.edu\n\nWelcome, Jennifer. Have a great time!\nUsername: Jennifer Cowley-Evans\nInitials: JC\nEmail: jennifer.cowley-evans@unt.edu\n\nWelcome, Bob. Have a great time!\nUsername: Bob Brown\nInitials: BB\nEmail: bob.brown@unt.edu\n\n"
+     ]
+    }
+   ],
+   "source": [
+    "user1 = User(\"neil\", \"smatresk\")\n",
+    "user2 = User(\"jennifer\", \"cowley-evans\")\n",
+    "user3 = User(\"bob\", \"brown\")\n",
+    "user1.greet()\n",
+    "user1.describe()\n",
+    "user2.greet()\n",
+    "user2.describe()\n",
+    "user3.greet()\n",
+    "user3.describe()\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 104,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class Car():\n",
+    "    \"\"\"A simple attempt to represent a car\"\"\"\n",
+    "    \n",
+    "    def __init__(self, make, model, year):\n",
+    "        \"\"\"Initialize car attributes\"\"\"\n",
+    "        self.make = make\n",
+    "        self.model = model\n",
+    "        self.year = year\n",
+    "        self.odometer_reading = 0\n",
+    "    \n",
+    "    def get_descriptive_name(self):\n",
+    "        \"\"\"Return a neatly-formatted descriptive name\"\"\"\n",
+    "        long_name = str(self.year) + \" \" + self.make + \" \" + self.model\n",
+    "        return long_name.title()\n",
+    "    \n",
+    "    def get_mileage(self):\n",
+    "        \"\"\"Print a statement showing the car's mileage\"\"\"\n",
+    "        if self.odometer_reading == 1:\n",
+    "            print(\"This car has only 1 mile on it.\")\n",
+    "        else:\n",
+    "            print(\"This car has \" + str(self.odometer_reading) + \" miles on it.\")\n",
+    "    \n",
+    "    def reset_odometer(self):\n",
+    "        \"\"\"A method for resetting the odometer to zero. Only use on a new vehicle!\"\"\"\n",
+    "        self.odometer_reading = 0\n",
+    "        \n",
+    "    def update_odometer(self, miles):\n",
+    "        \"\"\"A method for setting a new odometer value\"\"\"\n",
+    "        if miles >= self.odometer_reading:\n",
+    "            self.odometer_reading = miles\n",
+    "        else:\n",
+    "            print(\"ValueError: You cannot decrease (roll back) the miles on an odometer!\")\n",
+    "            print(\"The new value (\" + str(miles) + \n",
+    "                  \") must be greater than the current mileage (\" + \n",
+    "                  str(self.odometer_reading) + \").\")\n",
+    "    \n",
+    "    def increment_odometer(self, increment=1):\n",
+    "        \"\"\"A method to increment the mileage of the odometer\"\"\"\n",
+    "        if increment >= 1:\n",
+    "            self.odometer_reading += increment\n",
+    "        else:\n",
+    "            print(\"Value Error: Can't increment the odometer in a negative direction (or by 0).\")\n",
+    "        \n",
+    "class ElectricCar(Car):\n",
+    "    \"\"\"Represents aspects of a car, specific to Electric Vehicles\"\"\"\n",
+    "    \n",
+    "    def __init__(self, make, model, year):\n",
+    "        \"\"\"Initialize attributes of the parent class.\n",
+    "        Then initialize attributes specific to electric cars.\"\"\"\n",
+    "        super().__init__(make,model,year)\n",
+    "        self.battery_size = 70\n",
+    "        \n",
+    "    def desc_battery(self):\n",
+    "        \"\"\"A method to report details concerning the vehicle battery.\"\"\"\n",
+    "        This \n",
+    "        "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 105,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2106 Audi A4\nThis car has 0 miles on it.\n"
+     ]
+    }
+   ],
+   "source": [
+    "    \n",
+    "my_new_car = Car('audi', 'a4', 2106)\n",
+    "print(my_new_car.get_descriptive_name())\n",
+    "my_new_car.get_mileage()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 106,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "This car has 23 miles on it.\n"
+     ]
+    }
+   ],
+   "source": [
+    "my_new_car.odometer_reading=23\n",
+    "my_new_car.get_mileage()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 107,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "This car has 41 miles on it.\n"
+     ]
+    }
+   ],
+   "source": [
+    "my_new_car.update_odometer(41)\n",
+    "my_new_car.get_mileage()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 108,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "ValueError: You cannot decrease (roll back) the miles on an odometer!\nThe new value (35) must be greater than the current mileage (41).\nThis car has 41 miles on it.\n"
+     ]
+    }
+   ],
+   "source": [
+    "my_new_car.update_odometer(35)\n",
+    "my_new_car.get_mileage()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 109,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "This car has 0 miles on it.\n"
+     ]
+    }
+   ],
+   "source": [
+    "my_new_car.reset_odometer()\n",
+    "my_new_car.get_mileage()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 110,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "This car has only 1 mile on it.\n"
+     ]
+    }
+   ],
+   "source": [
+    "my_new_car.increment_odometer()\n",
+    "my_new_car.get_mileage()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 112,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "This car has 11 miles on it.\n"
+     ]
+    }
+   ],
+   "source": [
+    "my_new_car.increment_odometer(10)\n",
+    "my_new_car.get_mileage()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 119,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0"
+      ]
+     },
+     "execution_count": 119,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Exercise 9-4\n",
+    "restaurant4 = Restaurant(\"Quizno's\", \"sandwiches\")\n",
+    "restaurant4.num_served"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 116,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "145"
+      ]
+     },
+     "execution_count": 116,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "restaurant4.num_served = 145\n",
+    "restaurant4.num_served"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 121,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "35"
+      ]
+     },
+     "execution_count": 121,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "restaurant4.set_num_served(35)\n",
+    "restaurant4.num_served"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 124,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "38"
+      ]
+     },
+     "execution_count": 124,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "restaurant4.increment_num_served()\n",
+    "restaurant4.num_served"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 125,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "183"
+      ]
+     },
+     "execution_count": 125,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "restaurant4.increment_num_served(145)\n",
+    "restaurant4.num_served"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 128,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "8\n0\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Exercise 9-5\n",
+    "user4 = User(\"billy\", \"bean\")\n",
+    "user4.increment_login_attempts()\n",
+    "user4.increment_login_attempts()\n",
+    "user4.increment_login_attempts()\n",
+    "user4.increment_login_attempts(5)\n",
+    "print(user4.login_attempts)\n",
+    "user4.reset_login_attempts()\n",
+    "print(user4.login_attempts)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 129,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    ""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 133,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2018 Tesla Model S\n"
+     ]
+    }
+   ],
+   "source": [
+    "my_tesla = ElectricCar(\"tesla\", \"model s\", 2018)\n",
+    "print(my_tesla.get_descriptive_name())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {},
+ "nbformat": 4,
+ "nbformat_minor": 0
+}
