@@ -1,0 +1,203 @@
+﻿Cheat Sheet
+
+How do you do recursive functions with arguments?
+
+Expression - combination of values, variables, and operators
+Statement - a unit of code that has an effect, like creating or displaying
+
+### BASH ###
+
+“Cat”              # command to see a text file
+> PS1= ‘$ ‘        # to change the appearance of the command line
+*                  # wildcard
+?                  # one character
+dir /a             # this shows hidden files(win)
+ls -a              # this shows hidden files(mac)
+cls                # clear screen(win)
+clear              # clear screen(mac)
+mkdir              # make directory(win)
+rmdir              # remove directory(win)
+rmdir /s           # remove directory and contents(win)
+
+#cat = concatenate
+#head = top of the list
+#tail = end of the list
+#wc = word count
+#sort = sorts shit..
+# * = wildcard for everything
+# ? = SINGLE character
+# > = redirects to new/other file
+# | = routes to next file, on and on etc.
+
+### REGULAR EXPRESSIONS ###
+
+\1                         # number operator to refer back (register)
+\t                        # tab
+\n                        # new line
+\e                        # escape
+\r                        # return
+\f                        # form feed
+\d                        # any digit 0-9
+\D                        # anything but a digit
+\s                        # a space
+\S                        # anything but a space
+\w                        # match any alphanumeric
+\W                        # match any non-alphanumeric
+A{3}                        # curly-brace notation indicates frequency (example indicates 3 “A”s)
+[ ]                        # range or variance
++                        # one or more repititions
+*                         # zero or more repititions
+?                        # match zero or one
+\b                        # white space around words
+\b          matches a word boundary
+\B          matches anywhere but at a word boundary
+$                        # match end of string
+^                        # match beginning of string
+|                        # matches either/or
+"."      Matches any character except a newline.
+"^"      Matches the start of the string.
+"$"      Matches the end of the string or just before the newline at
+         the end of the string.
+"*"      Matches 0 or more (greedy) repetitions of the preceding RE.
+         Greedy means that it will match as many repetitions as possible.
+"+"      Matches 1 or more (greedy) repetitions of the preceding RE.
+"?"      Matches 0 or 1 (greedy) of the preceding RE.
+*?,+?,?? Non-greedy versions of the previous three special characters.
+{m,n}    Matches from m to n repetitions of the preceding RE.
+{m,n}?   Non-greedy version of the above.
+"\\"     Either escapes special characters or signals a special sequence.
+[]       Indicates a set of characters.
+         A "^" as the first character indicates a complementing set.
+"|"      A|B, creates an RE that will match either A or B.
+(...)    Matches the RE inside the parentheses.
+         The contents can be retrieved or matched later in the string.
+(?aiLmsux) Set the A, I, L, M, S, U, or X flag for the RE.
+(?:...)  Non-grouping version of regular parentheses.
+(?P<name>...) The substring matched by the group is accessible by name.
+(?P=name)     Matches the text matched earlier by the group named name.
+(?#...)  A comment; ignored.
+(?=...)  Matches if ... matches next, but doesn't consume the string.
+(?!...)  Matches if ... doesn't match next.
+(?<=...) Matches if preceded by ... (must be fixed length).
+(?<!...) Matches if not preceded by ... (must be fixed length).
+(?(id/name)yes|no) Matches yes pattern if the group with id/name matched,
+                   the (optional) no pattern otherwise.
+  This module exports the following functions:
+        match     Match a regular expression pattern to the beginning of a string.
+        fullmatch Match a regular expression pattern to all of a string.
+        search    Search a string for the presence of a pattern.
+        sub       Substitute occurrences of a pattern found in a string.
+        subn      Same as sub, but also return the number of substitutions made.
+        split     Split a string by the occurrences of a pattern.
+        findall   Find all occurrences of a pattern in a string.
+        finditer  Return an iterator yielding a match object for each match.
+        compile   Compile a pattern into a RegexObject.
+        purge     Clear the regular expression cache.
+        escape    Backslash all non-alphanumerics in a string.
+
+
+### PYCHARM ###
+
+command /   # comment out a selection
+
+
+### PYTHON ###
+
+Integer = 2
+Floating-Point Number = 42.0
+String = ‘Hello, cruel world.’
+
+sorteddict = sorted(bidict.items(), key = lambda t: t[0])   # to sort a dictionary
+type(2)                        # use to check type of a value
++=                        # concatenation shortcut (variable = variable + 1
+Int(x) * 2          # converts a string represented by (x) to an integer for the duration of this statement alone.
+string.index(‘a’)        # gets the index position of the first occurence of ‘a’
+string.count(‘b’)        # gets the count of ‘b’s in the string in question
+' '.join(['Monty', 'Python'])       # creates a string from words of a list
+string.split()          # splits a string into a list of words
+print(string[3:7])        # prints a slice of the string named string
+print(string[3:7:2])        # extended syntax[start:stop:step]
+print(string[::-1])        # print reverse
+print(‘quote’, end=’ ‘)     # To print without returning
+>>> ranch = nltk.Text(funtexts1.words('pg33409.txt'))  # Convert a Corpus Reader object to an NLTK text file
+Square root function - import math; math.sqrt();
+\n                        # new line
+if                        # If commands
+elif                        # branches in the flow of execution ( Even if more than one condition is true, only the first true branch runs.)
+else
+pass                        # use in an if statement to allow it to run without code/instruction yet
+a += 3                        # Equivalent to a = a + 3
+a -= 3                        # Equivalent to a = a - 3
+a *= 3                        # Equivalent to a = a * 3
+a /= 3                        # Equivalent to a = a / 3
+a %= 3                        # Equivalent to a = a % 3
+s += “there”                # Equivalent to s = s + “there”
+f = open("fileloc")        # to open a file and assign it to f
+x = x.replace(“ “, “_”)         # to replace (i.e. spaces with underscores to format a filename
+
+### BOOLEAN ###
+
+x == y                        # x is equal to y
+x != y                         # x is not equal to y
+x > y                         # x is greater than y
+x < y                         # x is less than y
+x >= y                         # x is greater than or equal to y
+x <= y                         # x is less than or equal to y
+
+3 logical operators - AND, OR, NOT
+Any non-zero number returns true
+Empty objects: the number 0, an empty list, an empty string, False
+
+### NLTK ###
+
+text.concordance('word')    # Search for a word in context within file text
+text.similar('word')    # Returns other words appearing in similar context
+text.common_contexts(['word1', 'word2'])    # Returns 'hollow' trigrams of all common contexts of word1,2
+text.dispersion_plot(['word1', 'word2', 'word3'])   # Returns a lexical dispersion plot for word1-n
+len(text) is obv, but len(set(text)) returns unique tokens
+sorted(set(text))   # Returns a list of unique tokens, sorted by ASCII
+text.count(word)    # Returns a count of occurrences of word in text
+print(sent_tokenize(example_text))      # Prints a list of tokenized sentences
+print(word_tokenize(example_text))      # Prints a list of tokenized words
+
+POS tag list:
+
+CC	    coordinating conjunction
+CD	    cardinal digit
+DT	    determiner
+EX	    existential there (like: "there is" ... think of it like "there exists")
+FW	    foreign word
+IN	    preposition/subordinating conjunction
+JJ	    adjective	'big'
+JJR	    adjective, comparative	'bigger'
+JJS	    adjective, superlative	'biggest'
+LS	    list marker	1)
+MD	    modal	could, will
+NN	    noun, singular 'desk'
+NNS	    noun plural	'desks'
+NNP	    proper noun, singular	'Harrison'
+NNPS	proper noun, plural	'Americans'
+PDT	    predeterminer	'all the kids'
+POS	    possessive ending	parent's
+PRP	    personal pronoun	I, he, she
+PRP$	possessive pronoun	my, his, hers
+RB	    adverb	very, silently,
+RBR	    adverb, comparative	better
+RBS	    adverb, superlative	best
+RP	    particle	give up
+TO	    to	go 'to' the store.
+UH	    interjection	errrrrrrrm
+VB	    verb, base form	take
+VBD	    verb, past tense	took
+VBG	    verb, gerund/present participle	taking
+VBN	    verb, past participle	taken
+VBP	    verb, sing. present, non-3d	take
+VBZ	    verb, 3rd person sing. present	takes
+WDT	    wh-determiner	which
+WP	    wh-pronoun	who, what
+WP$	    possessive wh-pronoun	whose
+WRB	    wh-abverb	where, when
+
+CALCULATIONS
+Lexical Richness
+$ len(set(text)) / len(text)    # divides the number of unique tokens by total tokens to arrive at a percentage of distinct words
